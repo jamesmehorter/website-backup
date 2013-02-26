@@ -53,7 +53,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKeyGoesHere!',
+	'key' => 'xGI545pUYcWRWZDN9KE6zXu2MAzU5M2c',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return array(
 	|
 	*/
 
-	'profiler' => false,
+	'profiler' => true,
 
 	/*
 	|--------------------------------------------------------------------------
