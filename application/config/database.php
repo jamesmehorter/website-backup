@@ -72,7 +72,11 @@ return array(
 			'host'     => '127.0.0.1',
 			'database' => 'website_backup',
 			'username' => 'root',
-			'password' => '1309piCa',
+			//Pica Dev
+			//'password' => '1309piCa',
+			
+			//James Home
+			'password' => '',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),

@@ -22,9 +22,11 @@
 */
 
 $environments = array(
+  //Pica Dev
+	//'local' => array('http://localhost*', '*.dev'),
 
-	'local' => array('http://localhost*', '*.dev'),
-
+  //James Home
+  'local' => array('http://drust.dev*'),
 );
 
 // --------------------------------------------------------------

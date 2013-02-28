@@ -12,6 +12,7 @@ class Base_Controller extends Controller {
         Asset::add('jqueryui_style', 'libs/jquery-ui/css/smoothness/jquery-ui-1.10.1.custom.min.css');
 
         //scripts
+        
         Asset::add('foundation_script', 'libs/foundation/javascripts/foundation.min.js');
         Asset::add('jqueryui_script', 'libs/jquery-ui/js/jquery-ui-1.10.1.custom.min.js');
         
