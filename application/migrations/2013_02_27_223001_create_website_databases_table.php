@@ -1,7 +1,11 @@
 <?php
 
 class Create_Website_Databases_Table {    
-
+	/**
+	 * Make changes to the database.
+	 *
+	 * @return void
+	 */
 	public function up()
     {
 		Schema::create('website_databases', function($table) {
@@ -13,7 +17,12 @@ class Create_Website_Databases_Table {
 			$table->text('password');
 		});
     }    
-
+	
+	/**
+	 * Revert the changes to the database.
+	 *
+	 * @return void
+	 */
 	public function down()
     {
 		Schema::drop('website_databases');

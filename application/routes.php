@@ -31,11 +31,18 @@
 |		});
 |
 */
-
+/*
 Route::get('/', function()
 {
 	return View::make('home.index');
+	//return View::make('public');
+
 });
+*/
+
+Route::get('/', 'home@index');
+
+//Route::get('/', 'home.index');
 
 /*
 |--------------------------------------------------------------------------

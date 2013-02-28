@@ -1,7 +1,11 @@
 <?php
 
 class Create_Websites_Table {    
-
+	/**
+	 * Make changes to the database.
+	 *
+	 * @return void
+	 */
 	public function up()
     {
 		Schema::create('websites', function($table) {
@@ -12,7 +16,12 @@ class Create_Websites_Table {
 			$table->string('screenshot', 200);
 		});
     }    
-
+	
+	/**
+	 * Revert the changes to the database.
+	 *
+	 * @return void
+	 */
 	public function down()
     {
 		Schema::drop('websites');

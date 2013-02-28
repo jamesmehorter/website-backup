@@ -1,7 +1,11 @@
 <?php
 
 class Create_Website_Ftps_Table {    
-
+	/**
+	 * Make changes to the database.
+	 *
+	 * @return void
+	 */
 	public function up()
     {
 		Schema::create('website_ftps', function($table) {
@@ -16,7 +20,12 @@ class Create_Website_Ftps_Table {
 			$table->integer('alternate');
 		});
     }    
-
+	
+	/**
+	 * Revert the changes to the database.
+	 *
+	 * @return void
+	 */
 	public function down()
     {
 		Schema::drop('website_ftps');
