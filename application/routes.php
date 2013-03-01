@@ -31,18 +31,10 @@
 |		});
 |
 */
-/*
-Route::get('/', function()
-{
-	return View::make('home.index');
-	//return View::make('public');
 
-});
-*/
+//Capture the homepage/index request and route it to our Base_Controller::action_homepage method
+Route::get('/', 'base@homepage');
 
-Route::get('/', 'home@index');
-
-//Route::get('/', 'home.index');
 
 /*
 |--------------------------------------------------------------------------
