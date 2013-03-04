@@ -23,8 +23,13 @@
     <body>
     	<section class="wrapper">
     		<header>
-    			{{ HTML::link_to_action('users@register', 'Register Now!') }}
+                <div class="row">
+                    <div class="small-6 small-centered columns">
+                        <h4>Website Backup Tool</h4>
+                    </div>
+                </div>
     		</header>
+            {{-- Output the specific content view requested --}}
     		@yield('content')
     	</section>
     	{{ Asset::scripts() }}

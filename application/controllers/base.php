@@ -1,11 +1,11 @@
 <?php
 
 class Base_Controller extends Controller {
-
 	/**
 		Contrstuct the Base Controller by adding view assets to each page load
 	*/
 	public function __construct(){
+
         //styles
         Asset::add('main_style', 'stylesheets/screen.css');
         Asset::add('foundation_style', 'libs/foundation/css/foundation.min.css');
@@ -29,10 +29,5 @@ class Base_Controller extends Controller {
 	public function __call($method, $parameters)
 	{
 		return Response::error('404');
-	}
-
-	public function action_homepage()
-	{
-		return View::make('homepage');
 	}
 }

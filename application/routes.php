@@ -32,9 +32,11 @@
 |
 */
 
-//Capture the homepage/index request and route it to our Base_Controller::action_homepage method
-Route::get('/', 'base@homepage');
+//Capture the homepage/index request and route it to our Public_Controller::action_login method
+//Route::get('/', 'login@index');
 
+Route::get('/', 'public@index');
+Route::get('login', 'login@index');
 
 /*
 |--------------------------------------------------------------------------
