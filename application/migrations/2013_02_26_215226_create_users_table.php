@@ -12,7 +12,8 @@ class Create_Users_Table {
 		    $table->increments('id');
 		    $table->string('email', 200);
 		    $table->text('password');
-		    $table->date('created_at');
+		    $table->integer('status');
+		    $table->timestamps();
 		    $table->date('last_seen');
 		});
 	}

@@ -33,10 +33,21 @@
 */
 
 //Capture the homepage/index request and route it to our Public_Controller::action_login method
-//Route::get('/', 'login@index');
-
 Route::get('/', 'public@index');
-Route::get('login', 'login@index');
+
+//Generate the login view
+Route::get('login', 'user@login');
+//Proccess the login form submission via POST
+Route::post('login', 'user@login');
+
+//Generate the Registration view
+Route::get('register', 'user@register');
+//Proccess the register form submission via POST
+Route::post('register', 'user@register');
+
+//Generate the admin dashboard view - only available to authorized users
+//Route::get('dashboard', array('before' => 'auth', 'dashboard@index'));
+Route::get('dashboard', 'dashboard@index');
 
 /*
 |--------------------------------------------------------------------------
