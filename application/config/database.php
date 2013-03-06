@@ -73,10 +73,10 @@ return array(
 			'database' => 'website_backup',
 			'username' => 'root',
 			//Pica Dev
-			'password' => '1309piCa',
+			//'password' => '1309piCa',
 			
 			//James Home
-			//'password' => '',
+			'password' => '',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),

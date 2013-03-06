@@ -25,7 +25,8 @@ class User_Controller extends Base_Controller {
 		$validation_rules = array(
 			'email' => 'required|email|unique:users', 
 			'password' => 'required',
-			'password-repeat' => 'required'
+			'password-repeat' => 'required',
+			'password' => 'same:password-repeat'
 		);
 
 		//Run the form field validation per our rules
