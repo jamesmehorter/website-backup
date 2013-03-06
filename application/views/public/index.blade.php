@@ -3,6 +3,18 @@
 {{-- Define the 'content' section that will output in the above template --}}
 @section('content')
 
+	@if (Session::has('logged_out'))
+		<div class="row">
+			<div class="small-6 small-centered columns">
+				<div class="row">
+					<div class="large-12 columns panel">
+						You have been logged out
+					</div>
+				</div>
+			</div>
+		</div>
+	@endif
+
 	<div class="row">
 		<div class="small-6 small-centered columns">
 			<div class="row">

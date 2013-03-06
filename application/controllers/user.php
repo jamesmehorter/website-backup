@@ -13,7 +13,7 @@ class User_Controller extends Base_Controller {
 	//Log the user out 
 	public function get_logout () {
 		Auth::logout();
-		return View::make('public.index');
+		return Redirect::to('')->with('logged_out', true);
 	}
 
 	//Display the user registration form
