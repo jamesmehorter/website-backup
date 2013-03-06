@@ -21,17 +21,19 @@
     </head>
     
     <body>
-    	<section class="wrapper">
-    		<header>
-                <div class="row">
-                    <div class="small-6 small-centered columns">
-                        <h4>Website Backup Tool</h4>
+    	<div class="row">
+            <div class="large-12 columns">
+        		<header>
+                    <div class="row">
+                        <div class="small-6 small-centered columns">
+                            <h4>Website Backup Tool</h4>
+                        </div>
                     </div>
-                </div>
-    		</header>
-            {{-- Output the specific content view requested --}}
-    		@yield('content')
-    	</section>
+        		</header>
+                {{-- Output the specific content view requested --}}
+                @yield('content')
+    	   </div>
+        </div>
     	{{ Asset::scripts() }}
     </body>
 </html>

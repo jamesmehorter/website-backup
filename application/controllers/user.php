@@ -29,6 +29,7 @@ class User_Controller extends Base_Controller {
 
 		//Create some validation rules
 		$registration_rules = array(
+			'name' => 'required',
 			'email' => 'required|email|unique:users', 
 			'password' => 'required',
 			'password-repeat' => 'required',
@@ -44,6 +45,7 @@ class User_Controller extends Base_Controller {
 		else :
 			//Create the new user account
 			$user = new User();
+			$user->name = Input::get('name');
 			$user->email = Input::get('email');
 			$user->password = Hash::make(Input::get('password'));
 			$user->status = 0 ; //The status starts at 0, once email confirmed -> 1

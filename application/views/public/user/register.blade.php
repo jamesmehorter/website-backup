@@ -11,6 +11,11 @@
 				<legend>Register</legend>
 				<div class="row">
 					<div class="large-12 columns">
+						{{ Form::text('name', '', array('placeholder' => 'Your Name')) }}
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
 						{{ Form::email('email', '', array('placeholder' => 'Your Email')) }}
 					</div>
 				</div>

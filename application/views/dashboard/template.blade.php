@@ -30,7 +30,11 @@
                 </div>
     		</header>
             {{-- Output the specific content view requested --}}
-    		@yield('content')
+    		<div class="row">
+                <div class="large-12 columns">
+                    @yield('content')
+                </div>
+            </div>
     	</section>
     	{{ Asset::scripts() }}
     </body>

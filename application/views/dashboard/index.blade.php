@@ -3,7 +3,8 @@
 {{-- Define the 'content' section that will output in the above template --}}
 @section('content')
 
-	Welcome to your Dashboard. 
+	Hi {{ Auth::user()->name }}, Welcome to your Dashboard. 
+	<br />
 	{{ HTML::link_to_action('user@logout', 'Logout') }} when you're ready to leave.
 	
 @endsection
