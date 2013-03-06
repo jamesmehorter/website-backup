@@ -39,6 +39,8 @@ Route::get('/', 'public@index');
 Route::get('login', 'user@login');
 //Proccess the login form submission via POST
 Route::post('login', 'user@login');
+//Log the user out
+Route::get('logout', 'user@logout');
 
 //Generate the Registration view
 Route::get('register', 'user@register');

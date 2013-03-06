@@ -10,6 +10,7 @@ class Create_Users_Table {
 	{
 		Schema::create('users', function($table) {
 		    $table->increments('id');
+		    $table->string('name', 25);
 		    $table->string('email', 200);
 		    $table->text('password');
 		    $table->integer('status');

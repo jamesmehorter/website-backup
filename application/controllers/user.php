@@ -10,6 +10,12 @@ class User_Controller extends Base_Controller {
 		return View::make('public.user.login');
 	}
 
+	//Log the user out 
+	public function get_logout () {
+		Auth::logout();
+		return View::make('public.index');
+	}
+
 	//Display the user registration form
 	public function get_register() {
 		return View::make('public.user.register');
@@ -22,7 +28,7 @@ class User_Controller extends Base_Controller {
 		$user_details = Input::all();
 
 		//Create some validation rules
-		$validation_rules = array(
+		$registration_rules = array(
 			'email' => 'required|email|unique:users', 
 			'password' => 'required',
 			'password-repeat' => 'required',
@@ -30,28 +36,29 @@ class User_Controller extends Base_Controller {
 		);
 
 		//Run the form field validation per our rules
-		$validation = Validator::make($user_details, $validation_rules);
+		$registration = Validator::make($user_details, $registration_rules);
 		
-		if ($validation->fails()) :
-			//If the validation fails we need to redirect back to the login view and display the errors
-			return Redirect::to('register')->with_errors($validation);
+		if ($registration->fails()) :
+			//If the registration validation fails we need to redirect back to the login view and display the errors
+			return Redirect::to('register')->with_errors($registration);
 		else :
-			//Attempt to register the user
-			try {
-				$user = new User();
-				$user->email = Input::get('email');
-				$user->password = Hash::make(Input::get('password'));
-				$user->status = 0 ;
-				$user->last_seen = date('Y-m-d H:i:s');
-				$user->save();
-				Auth::login($user);
-				return Redirect::to('dashboard');
-			} catch ( Exception $e ) {
-				return Redirect::to('register')->with_errors("Sorry, something went wrong. Please try again.");
-			}
+			//Create the new user account
+			$user = new User();
+			$user->email = Input::get('email');
+			$user->password = Hash::make(Input::get('password'));
+			$user->status = 0 ; //The status starts at 0, once email confirmed -> 1
+			$user->last_seen = date('Y-m-d H:i:s');
+			$user->save();
 
+			/* We should send an email confirmation here and do the following once that's been done */
+
+			//Log the new user in
+			Auth::login($user);
+
+			//Send the new user to their dashboard
+			return Redirect::to('dashboard');
 		endif;//end submitted login validation
-	}
+	}//post_register
 
 	########### LOGIN POST ##############
 	//Capture and POST requests and process them (i.e. Login form submission)
@@ -60,23 +67,23 @@ class User_Controller extends Base_Controller {
 		$user_credentials = Input::all();
 		
 		//Create some validation rules
-		$validation_rules = array(
+		$login_rules = array(
 			'username' => 'required|email', 
 			'password' => 'required'
 		);
 
 		//Run the form field validation per our rules
-		$validation = Validator::make($user_credentials, $validation_rules);
+		$login = Validator::make($user_credentials, $login_rules);
 		
-		if ($validation->fails()) :
-			//If the validation fails we need to redirect back to the login view and display the errors
-			return Redirect::to('login')->with_errors($validation);
+		if ($login->fails()) :
+			//If the login validation fails we need to redirect back to the login view and display the errors
+			return Redirect::to('login')->with_errors($login);
 		else :
 			//Attempt to log the user in
 			if (Auth::attempt($user_credentials)) :
 				return Redirect::to('dashboard');
 			else :
-				return Redirect::to('login')->with_errors("Incorrect login information");
+				return Redirect::to('login')->with('login_errors', true);
 			endif;//end attempted login
 		endif;//end submitted login validation
 	}
